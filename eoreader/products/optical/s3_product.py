@@ -443,7 +443,7 @@ class S3Product(OpticalProduct):
         self,
         band_path: AnyPathType,
         band: BandNames = None,
-        resampling_method: Resampling = None,
+        resampling: Resampling = None,
         pixel_size: Union[tuple, list, float] = None,
         size: Union[list, tuple] = None,
         **kwargs,
@@ -465,14 +465,14 @@ class S3Product(OpticalProduct):
 
         """
 
-        if resampling_method is None:
-            resampling_method = Resampling.bilinear
+        if resampling is None:
+            resampling = Resampling.bilinear
         
         band = utils.read(
             band_path,
             pixel_size=pixel_size,
             size=size,
-            resampling_method=resampling_method,
+            resampling=resampling,
             **kwargs,
         )
 
